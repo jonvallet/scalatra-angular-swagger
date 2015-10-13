@@ -3,7 +3,6 @@
 ## Build & Run ##
 
 ```sh
-$ cd Scalatra_Angular_Swagger_App
 $ ./sbt
 > container:start
 > browse
