@@ -13,11 +13,14 @@ class MyScalatraServlet extends ScalatraServlet with JacksonJsonSupport {
   }
 
   get("/") {
-    UserData.all
+    params.get("name") match {
+      case Some(name) => UserData.all filter (_.name.toLowerCase contains name.toLowerCase)
+      case None => UserData.all
+    }
   }
 
   get("/:name") {
-    UserData.all find (_.name.toLowerCase == params("name")) match {
+    UserData.all find (_.name.toLowerCase == params("name").toLowerCase) match {
       case Some(u) => u
       case None => halt(404)
     }
