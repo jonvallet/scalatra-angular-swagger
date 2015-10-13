@@ -30,7 +30,8 @@ object ScalatraAngularSwaggerAppBuild extends Build {
         "org.eclipse.jetty" % "jetty-webapp" % "9.2.10.v20150310" % "container",
         "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided",
         "org.scalatra" %% "scalatra-json" % ScalatraVersion,
-        "org.json4s"   %% "json4s-jackson" % "3.2.9"
+        "org.json4s"   %% "json4s-jackson" % "3.2.9",
+        "org.scalatra" %% "scalatra-swagger"  % "2.3.0"
       ),
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
         Seq(
