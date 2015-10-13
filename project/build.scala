@@ -31,7 +31,8 @@ object ScalatraAngularSwaggerAppBuild extends Build {
         "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided",
         "org.scalatra" %% "scalatra-json" % ScalatraVersion,
         "org.json4s"   %% "json4s-jackson" % "3.2.9",
-        "org.scalatra" %% "scalatra-swagger"  % "2.3.0"
+        "org.scalatra" %% "scalatra-swagger"  % "2.3.0",
+        "org.json4s"   %% "json4s-native" % "3.2.9"
       ),
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
         Seq(
