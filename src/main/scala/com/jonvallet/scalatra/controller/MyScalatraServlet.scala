@@ -13,8 +13,25 @@ class MyScalatraServlet extends ScalatraServlet with JacksonJsonSupport {
   }
 
   get("/") {
-    Map("name"->"Jon",
-        "surname"->"Vallet")
+    UserData.all
   }
 
+  get("/:name") {
+    UserData.all find (_.name.toLowerCase == params("name")) match {
+      case Some(u) => u
+      case None => halt(404)
+    }
+  }
+
+}
+
+
+case class User(name: String, surname: String)
+
+object  UserData {
+  var all = List(
+    User("Jon", "Vallet"),
+    User("Laura", "Olchansky"),
+    User("David", "Vallet")
+  )
 }
